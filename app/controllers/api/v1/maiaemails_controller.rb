@@ -1,15 +1,15 @@
 class Api::V1::MaiaemailsController < ApplicationController
   def create
-    @email = Maiaemail.new(email: params[:email])
-    if @email.save
-      render json: @email
+    @maiaemail = Maiaemail.new(email: params[:email])
+    if @maiaemail.save
+      render json: @maiaemail
     else
-      render json: {errors: @email.errors.full_messages}
+      render json: {errors: @maiaemail.errors.full_messages}
     end
   end
 
   def index
-    @emails = Maiaemail.all
-    render json: @emails
+    @maiaemails = Maiaemail.all
+    render json: @maiaemails
   end
 end
